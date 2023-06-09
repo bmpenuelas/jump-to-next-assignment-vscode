@@ -3,7 +3,7 @@
   "displayName": "Jump To Next Assignment",
   "description": "Jump to the next line where the selected variable is assigned",
   "icon": "img/logo.png",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publisher": "bmpenuelas",
   "license": "MIT",
   "repository": {
@@ -21,13 +21,13 @@
   "contributes": {
     "commands": [
       {
-        "command": "jumpToNextAssignment.navigateToNextAssignment",
-        "title": "Navigate to next assignment"
+        "command": "jumpToNextAssignment.jumpToNextAssignment",
+        "title": "Jump to next assignment"
       }
     ],
     "keybindings": [
       {
-        "command": "jumpToNextAssignment.navigateToNextAssignment",
+        "command": "jumpToNextAssignment.jumpToNextAssignment",
         "key": "alt+a",
         "when": "editorTextFocus"
       }
