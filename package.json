@@ -1,0 +1,57 @@
+{
+  "name": "jump-to-next-assignment",
+  "displayName": "Jump To Next Assignment",
+  "description": "Jump to the next line where the selected variable is assigned",
+  "icon": "img/logo.png",
+  "version": "0.1.0",
+  "publisher": "bmpenuelas",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmpenuelas/jump-to-next-assignment-vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.65.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "jumpToNextAssignment.navigateToNextAssignment",
+        "title": "Navigate to next assignment"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "jumpToNextAssignment.navigateToNextAssignment",
+        "key": "alt+a",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.79.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.3",
+    "@vscode/test-electron": "^2.3.2"
+  }
+}
