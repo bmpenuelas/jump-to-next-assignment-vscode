@@ -31,7 +31,17 @@
         "key": "alt+a",
         "when": "editorTextFocus"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Jump To Next Assignment",
+      "properties": {
+        "jumpToNextAssignment.allowCharsBeforeAssignOp": {
+          "type": "boolean",
+          "default": true,
+          "description": "Allow characters between variable name and assignment operator"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

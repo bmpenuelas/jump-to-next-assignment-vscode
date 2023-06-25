@@ -57,6 +57,11 @@ export function activate(context: vscode.ExtensionContext) {
         return; // No text to search
       }
 
+      // Get the user settings
+      const allowCharsBeforeAssignOp = vscode.workspace
+        .getConfiguration("jumpToNextAssignment")
+        .get<boolean>("allowCharsBeforeAssignOp");
+
       // Get the file language
       const fileLanguage = editor.document.languageId;
 
