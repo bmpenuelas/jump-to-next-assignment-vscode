@@ -16,11 +16,31 @@ const assignmentCharacters: { [key: string]: string | string[] } = {
   systemverilog: "=",
 };
 
+// Helper methods
+const moveTo = (
+  editor: vscode.TextEditor,
+  position: vscode.Position,
+  selectionLen: number
+) => {
+  const newPosition = new vscode.Position(
+    position.line,
+    position.character + selectionLen
+  );
+  editor.selection = new vscode.Selection(position, newPosition);
+
+  // Calculate the range to be centered
+  const startLine = Math.max(position.line - 10, 0);
+  const endLine = Math.min(position.line + 10, editor.document.lineCount - 1);
+  const range = new vscode.Range(startLine, 0, endLine, 0);
+
+  // Center the view on the range
+  editor.revealRange(range, vscode.TextEditorRevealType.InCenter);
+};
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
+  // This line of code will only be executed once when the extension is activated
   console.log('The extension "Jump To Next Assignment" is now active.');
 
   // The command has been defined in the package.json file
@@ -106,8 +126,7 @@ export function activate(context: vscode.ExtensionContext) {
           position.isEqual(currentPosition)
         ) {
           // Move the cursor to the matched position
-          editor.selection = new vscode.Selection(position, position);
-          editor.revealRange(new vscode.Range(position, position));
+          moveTo(editor, position, selectedText.length);
           return;
         }
       }
@@ -124,8 +143,7 @@ export function activate(context: vscode.ExtensionContext) {
             position.isEqual(currentPosition)
           ) {
             // Move the cursor to the matched position
-            editor.selection = new vscode.Selection(position, position);
-            editor.revealRange(new vscode.Range(position, position));
+            moveTo(editor, position, selectedText.length);
             return;
           }
         }
