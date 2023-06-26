@@ -23,3 +23,15 @@ Default shortcut: `ALT+a` (can be changed in Settings)
 - systemverilog: `=`
 
 Please create a PR or open a new Issue in GitHub if you would like to request support for other languages or syntax!
+
+# Shortcuts
+
+| Shortcut | Functionality |  Default |
+|----------|----------| ----------|
+| jumpToNextAssignment.jumpToNextAssignment   | Jump to the next place where the selected variable is assigned   |  `ALT+a`  |
+
+# Settings
+
+| Setting | Functionality |  Default |
+|----------|----------| ----------|
+| jumpToNextAssignment.allowCharsBeforeAssignOp   | Allows other non-whitespace characters between the variable name and the assignment. This catches `foo` in expressions such as destructuring assignments like `[foo, bar] = result` (might catch some false positives though). <br> <br> Can be disabled to catch only expressions like `foo <whitespace(s)> = result`  |  `true` |

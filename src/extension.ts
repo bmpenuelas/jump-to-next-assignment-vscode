@@ -75,15 +75,17 @@ export function activate(context: vscode.ExtensionContext) {
           .map((char) => escapeRegex(char))
           .join("|");
         pattern = new RegExp(
-          `\\b${escapeRegex(selectedText)}\\b\\s*(${assignmentRegex})`,
+          `\\b${escapeRegex(selectedText)}\\b${
+            allowCharsBeforeAssignOp ? "[^=\r\n]*" : "\\s*"
+          }(${assignmentRegex})(?!=)`,
           "g"
         );
       } else {
         // Single assignment character
         pattern = new RegExp(
-          `\\b${escapeRegex(selectedText)}\\b\\s*${escapeRegex(
-            assignmentCharacter
-          )}`,
+          `\\b${escapeRegex(selectedText)}\\b${
+            allowCharsBeforeAssignOp ? "[^=\r\n]*" : "\\s*"
+          }${escapeRegex(assignmentCharacter)}(?!=)`,
           "g"
         );
       }
