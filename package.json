@@ -3,7 +3,7 @@
   "displayName": "Jump To Next Assignment",
   "description": "Jump to the next line where the selected variable is assigned",
   "icon": "img/logo.png",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "publisher": "bmpenuelas",
   "license": "MIT",
   "repository": {
