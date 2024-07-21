@@ -49,7 +49,10 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "publish:marketplace": "vsce package && vsce publish",
+    "publish:openvsx": "bash -c \"read -p 'Enter packaged filename: ' filename && read -sp 'Enter openvsx token: ' token && echo && npx ovsx publish \\\"$filename\\\" -p \\\"$token\\\"\"",
+    "publish": "npm run publish:marketplace && npm run publish:openvsx"
   },
   "devDependencies": {
     "@types/vscode": "^1.65.1",
